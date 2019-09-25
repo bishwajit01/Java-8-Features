@@ -3,6 +3,7 @@ package lambda;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * @author Bishwajit.
@@ -11,11 +12,8 @@ import java.util.List;
 public class LambdaDemo5 {
 
 	public static void main(String[] args) {
-		List<Person> listPerson = Arrays.asList(new Person("Anurupa", 28),
-												new Person("Anupama", 32),
-												new Person("Anuradha", 39),
-												new Person("Anushree", 26),
-												new Person("Bishwajit", 28));
+		List<Person> listPerson = Arrays.asList(new Person("Anurupa", 28), new Person("Anupama", 32),
+				new Person("Anuradha", 39), new Person("Anushree", 26), new Person("Bishwajit", 28));
 
 		// Sorting using comparator.
 		Collections.sort(listPerson, (p1, p2) -> p1.getName().compareTo(p2.getName()));
@@ -29,6 +27,11 @@ public class LambdaDemo5 {
 		System.out.println("\nNames which starts with B");
 		System.out.println("----------------------------");
 		printConditionally(listPerson, p -> p.getName().startsWith("B"));
+
+		// Name Starts with 'A'
+		System.out.println("\nNames which starts with A");
+		System.out.println("----------------------------");
+		printConditionallywithPredicate(listPerson, p -> p.getName().startsWith("A"));
 
 	}
 
@@ -44,6 +47,15 @@ public class LambdaDemo5 {
 				System.out.println(p);
 			}
 		}
+	}
+
+	private static void printConditionallywithPredicate(List<Person> listPerson, Predicate<Person> predicate) {
+		for (Person p:listPerson) {
+			if(predicate.test(p)) {
+				System.out.println(p);
+			}
+		}
+
 	}
 }
 
