@@ -6,7 +6,7 @@ import java.util.function.BiConsumer;
  * @author Bishwajit.
  *
  */
-public class Lambda7 {
+public class LambdaDemo7 {
 
 	public static void main(String[] args) {
 		int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
